@@ -35,6 +35,18 @@ require("lazy").setup({
 	      "nvim-tree/nvim-web-devicons", -- optional, but recommended
 	    },
 	    lazy = false, -- neo-tree will lazily load itself
+	    config = function()
+		require("neo-tree").setup({
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					hide_dotfiles = false,
+					hide_gitignored = true,
+					hide_ignored = true,
+				},
+			},
+		})
+	    end
   },
 
   {

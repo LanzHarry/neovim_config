@@ -1,4 +1,34 @@
 -- core editor options
 vim.opt.number = true -- make line numbers visible
 vim.opt.relativenumber = true -- set line numbers to be relative to current line
-
+vim.opt.clipboard = "unnamedplus" -- sync clipboard between OS clipboard and neovim registers
+vim.opt.wrap = false -- prevent line wrapping
+-- vim.opt.linebreak = false -- soft linewrapping (only relevant when wrap is true)
+vim.opt.colorcolumn = "80" -- column to show where 80 character limit is
+vim.opt.mouse = "a" -- enable mouse mode in all modes
+vim.opt.autoindent = true -- indent new line same as current line
+vim.opt.ignorecase = true -- ignore case in search unless \C or capital in search
+vim.opt.smartcase = true -- paired with ignorecase to give correct functionality as described above
+vim.opt.shiftwidth = 4 -- number of spaces for an indentation
+vim.opt.tabstop = 4 -- number of spaces for a tab
+vim.opt.softtabstop = 4 -- number of spaces a tab counts for whilst editing
+vim.opt.expandtab = true -- turn tab into spaces
+vim.opt.scrolloff = 8 -- keep this many lines above and below cursor vertically
+vim.opt.sidescrolloff = 8 -- keep this many columns visible either side of cursor horizontally
+vim.opt.cursorline = true -- highlight line the cursor is on
+vim.opt.splitbelow = true -- horizontal splits are placed below by default
+vim.opt.splitright = true -- vertical splits are placed right by default
+vim.opt.hlsearch = true -- show search results as highlighted (set <leader> h to clear)
+vim.opt.showmode = true -- show what interaction mode vim is in (set to false if statusline plugin installed)
+vim.opt.termguicolors = true -- enable 24 bit colour
+vim.opt.whichwrap = "bs<>[]hl" -- which cursor keys can move cursor across lines at start/end
+vim.opt.numberwidth = 4 -- width of number column
+vim.opt.swapfile = false -- whether to create a swapfile
+vim.opt.backup = false -- whether to create backups
+vim.opt.writebackup = false -- whether to write directly to disk
+vim.opt.undofile = true -- save undo history
+vim.opt.undodir = nil -- uses default in state dir
+vim.opt.undolevels = 10000 -- max undo steps
+vim.opt.undoreload = 10000 -- lines to save for reload
+vim.opt.smartindent = false -- inbuilt smart indent control
+vim.opt.showtabline = 1 -- 0 never show, 1 show when multiple tabs, 2 never show

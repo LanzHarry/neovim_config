@@ -5,8 +5,11 @@ local function map(mode, map_keys, map_command, desc)
 end
 -- text editing keymaps
 
+map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", "Move line up (insert mode)")
+map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", "Move line down (insert mode)")
+
 map("n", "<A-j>", "<cmd>m .+1<CR>==", "Move line down")
 map("n", "<A-k>", "<cmd>m .-2<CR>==", "Move line up")
 
-map("x", "<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
-map("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
+map("v", "<A-j>", "<cmd>'<'>m '>+1<CR>gv=gv", "Move selection down")
+map("v", "<A-k>", "<cmd>'<'>m '<-2<CR>gv=gv", "Move selection up")

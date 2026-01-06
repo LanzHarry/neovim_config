@@ -1,26 +1,32 @@
 -- core editor options
 vim.opt.number = true -- make line numbers visible
 vim.opt.relativenumber = true -- set line numbers to be relative to current line
-vim.opt.clipboard = "unnamedplus" -- sync clipboard between OS clipboard and neovim registers
-vim.opt.wrap = false -- prevent line wrapping
--- vim.opt.linebreak = false -- soft linewrapping (only relevant when wrap is true)
 vim.opt.colorcolumn = "80,100" -- column to show where 80 character limit is
-vim.opt.mouse = "a" -- enable mouse mode in all modes
-vim.opt.autoindent = true -- indent new line same as current line
-vim.opt.ignorecase = true -- ignore case in search unless \C or capital in search
-vim.opt.smartcase = true -- paired with ignorecase to give correct functionality as described above
-vim.opt.shiftwidth = 4 -- number of spaces for an indentation
-vim.opt.tabstop = 4 -- number of spaces for a tab
-vim.opt.softtabstop = 4 -- number of spaces a tab counts for whilst editing
-vim.opt.expandtab = true -- turn tab into spaces
-vim.opt.scrolloff = 8 -- keep this many lines above and below cursor vertically
-vim.opt.sidescrolloff = 8 -- keep this many columns visible either side of cursor horizontally
 vim.opt.cursorline = true -- highlight line the cursor is on
 vim.opt.splitbelow = true -- horizontal splits are placed below by default
 vim.opt.splitright = true -- vertical splits are placed right by default
 vim.opt.hlsearch = true -- show search results as highlighted (set <leader> h to clear)
 vim.opt.showmode = true -- show what interaction mode vim is in (set to false if statusline plugin installed)
+
+-- text editing behavioural options
+vim.opt.wrap = false -- prevent line wrapping
+vim.opt.autoindent = true -- indent new line same as current line
+-- vim.opt.linebreak = false -- soft linewrapping (only relevant when wrap is true)
+vim.opt.shiftwidth = 4 -- number of spaces for an indentation
+vim.opt.tabstop = 4 -- number of spaces for a tab
+vim.opt.softtabstop = 4 -- number of spaces a tab counts for whilst editing
+vim.opt.expandtab = true -- turn tab into spaces
+
+-- nvim settings
+vim.opt.mouse = "a" -- enable mouse mode in all modes
+vim.opt.clipboard = "unnamedplus" -- sync clipboard between OS clipboard and neovim registers
+vim.opt.ignorecase = true -- ignore case in search unless \C or capital in search
+vim.opt.smartcase = true -- paired with ignorecase to give correct functionality as described above
+vim.opt.scrolloff = 8 -- keep this many lines above and below cursor vertically
+vim.opt.sidescrolloff = 8 -- keep this many columns visible either side of cursor horizontally
 vim.opt.termguicolors = true -- enable 24 bit colour
+
+
 vim.opt.whichwrap = "bs<>[]hl" -- which cursor keys can move cursor across lines at start/end
 vim.opt.numberwidth = 4 -- width of number column
 vim.opt.swapfile = false -- whether to create a swapfile

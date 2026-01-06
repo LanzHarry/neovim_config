@@ -11,10 +11,10 @@ vim.opt.signcolumn = "yes:1" -- keep sign column
 vim.opt.conceallevel = 0 -- make markdown text symbols visible
 vim.opt.cmdheight = 1 -- height of command line in editor
 vim.opt.pumheight = 10 -- set popup menu height
-vim.opt.shortmess:append "c" -- suppress completion messages for quieter UI
 vim.opt.pumblend = 0 -- no transparancy for popup menus
 vim.opt.winblend = 0 -- no transparency for floating windows
 vim.opt.completeopt = "menuone,noselect" -- show completion even for one item, don't auto insert
+vim.opt.shortmess:append "c" -- suppress completion messages for quieter UI
 
 -- text editing behavioural options
 vim.opt.wrap = false -- prevent line wrapping
@@ -63,6 +63,3 @@ vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- remove vim plugins from 
 vim.opt.autoread = true -- auto-reload files changed on disk (works with checktime)
 vim.opt.smoothscroll = true -- smooth scolling if version supports it
 vim.opt.laststatus = 2 -- always show statusline (maybe not useful if lualine for example)
-
-
-

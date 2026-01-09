@@ -47,3 +47,21 @@ map("n", "<Up>", "<cmd>resize -2<CR>", "Decrease split height")
 map("n", "<Down>", "<cmd>resize +2<CR>", "Increase split height")
 map("n", "<Left>", "<cmd>vertical resize -2<CR>", "Decrease split width")
 map("n", "<Right>", "<cmd>vertical resize +2<CR>", "Increase split width")
+
+-- buffer navigation
+map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
+map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
+map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer")
+map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
+
+-- window management
+map("n", "<leader>v", "<C-w>v", "Create vertical split")
+map("n", "<leader>h", "<C-w>s", "Create horizontal split")
+map("n", "<leader>se", "<C-w>=", "Make splits equal")
+map("n", "<leader>xs", "<cmd>close<CR>", "Close split")
+
+-- window navigation
+map("n", "<C-j>", "<cmd>wincmd j<CR>", "Navigate to split below")
+map("n", "<C-k>", "<cmd>wincmd k<CR>", "Navigate to split above") 
+map("n", "<C-h>", "<cmd>wincmd h<CR>", "Navigate to split left") 
+map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right") 

@@ -33,3 +33,17 @@ map("n", "<C-q>", "<cmd>q<CR>", "Quit file")
 
 -- delete single character without copying into default register
 map("n", "x", '"_x', "Delete char with no register copy")
+
+-- page down and up with centering
+map("n", "<C-d>", "<C-d>zz", "Page down and centre")
+map("n", "<C-u>", "<C-u>zz", "Page up and centre")
+
+-- find and centre
+map("n", "n", "nzzzv", "Find next and centre")
+map("n", "N", "Nzzzv", "Find previous and centre")
+
+-- resize splits with arrows
+map("n", "<Up>", "<cmd>resize -2<CR>", "Decrease split height")
+map("n", "<Down>", "<cmd>resize +2<CR>", "Increase split height")
+map("n", "<Left>", "<cmd>vertical resize -2<CR>", "Decrease split width")
+map("n", "<Right>", "<cmd>vertical resize +2<CR>", "Increase split width")

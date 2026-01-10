@@ -65,3 +65,37 @@ map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
 map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer")
 map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
+
+-- tabs
+map("n", "<leader>to", "<cmd>tabnew<CR>", "Open new tab")
+map("n", "<leader>tx", "<cmd>tabclose<CR>", "Close tab")
+map("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
+map("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")
+
+-- toggle line wrapping
+map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
+
+-- stay in visual mode for indenting
+map("v", "<", "<gv", "Stay in visual mode post un-indent")
+map("v", ">", ">gv", "Stay in visual mode post indent")
+
+-- keep last yank when pasting over
+map("v", "p", '"_dP', "Paste but do not copy overwritten text to clipboard")
+
+-- diagnostic keymaps
+map("n", "[d", 
+function() vim.diagnostic.jump {
+    count = -1,
+    float = true
+} end,
+"Go to previous diagnostic message and open floating window")
+
+map("n", "]d", 
+function() vim.diagnostic.jump {
+    count = 1,
+    float = true
+} end,
+"Go to next diagnostic message and open floating window")
+
+map("n", "<leader>d", vim.diagnostic.open_float, "Open diagnostic message in floating window")
+map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")

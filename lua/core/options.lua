@@ -57,7 +57,7 @@ vim.opt.undolevels = 10000 -- max undo steps
 vim.opt.undoreload = 10000 -- lines to save for reload
 vim.opt.fileencoding = "utf-8" -- default file encoding
 vim.opt.updatetime = 250 -- wait time for neovim to fire certain events
-vim.opt.timeoutlen = 300 -- wait time to complete mapped sequence
+vim.opt.timeoutlen = 500 -- wait time to complete mapped sequence
 vim.opt.iskeyword:append "-" -- treat hyphenated words as one word
 vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- remove vim plugins from neovim path
 vim.opt.autoread = true -- auto-reload files changed on disk (works with checktime)

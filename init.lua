@@ -19,13 +19,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
+-- Set up plugins
 require("lazy").setup({
 	{
 	    "nvim-neo-tree/neo-tree.nvim",
@@ -49,23 +43,5 @@ require("lazy").setup({
 		})
 	    end
   },
-
-  {
-	  "catppuccin/nvim", 
-	  name = "catppuccin",
-	  lazy = false,
-	  priority = 1000,
-	  config = function()
-		  require("catppuccin").setup {
-			  highlight_overrides = {
-				  all = function(colors)
-					  return {
-						  LineNr = { fg = "#FF00C3" },
-					  }
-				  end,
-				  }
-		  }
-		  vim.cmd.colorscheme("catppuccin-mocha")
-	  end
-  }
+  require "plugins.colourtheme"
 })

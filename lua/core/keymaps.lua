@@ -29,7 +29,7 @@ map({ "i", "n" }, "<C-s>", "<cmd>update<CR>", "Save file")
 map("n", "<leader>sn", "<cmd>noautocmd w<CR>", "Save file no auto-format")
 
 -- quit file
-map("n", "<C-q>", "<cmd>q<CR>", "Quit file")
+map({ "i", "n" }, "<C-q>", "<cmd>q<CR>", "Quit file")
 
 -- delete single character without copying into default register
 map("n", "x", '"_x', "Delete char with no register copy")

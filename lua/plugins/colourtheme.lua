@@ -11,8 +11,8 @@ return {
                         LineNr = { fg = "#FF00C3" },
                     }
                 end,
-            }
+            },
         }
-    vim.cmd.colorscheme("catppuccin-mocha")
+        vim.cmd.colorscheme("catppuccin-mocha")
     end
 }

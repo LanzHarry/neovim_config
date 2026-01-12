@@ -63,7 +63,7 @@ map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right")
 -- buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
-map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer")
+-- map("n", "<leader>x", "<cmd>Bdelete<CR>", "Close current buffer") -- relies on vim-bbye
 map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
 
 -- tabs

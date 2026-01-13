@@ -12,7 +12,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 map({ "n", "v" }, "<Space>", "<Nop>")
 
--- line moving 
+-- custom escape sequence using rare digram
+map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
+
+-- line moving (slightly buggy at bof and eof but useable)
 map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<cmd>normal! zz<CR>", "Move line up (insert mode)")
 map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi<cmd>normal! zz<CR>", "Move line down (insert mode)")
 
@@ -63,7 +66,7 @@ map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right")
 -- buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
--- map("n", "<leader>x", "<cmd>Bdelete<CR>", "Close current buffer") -- relies on vim-bbye
+-- map("n", "<leader>x", "<cmd>Bdelete<CR>", "Close current buffer") -- relies on vim-bbye so defined in plugin
 map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
 
 -- tabs

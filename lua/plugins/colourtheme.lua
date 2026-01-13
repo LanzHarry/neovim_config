@@ -3,16 +3,20 @@ return {
     name = "catppuccin",
     lazy = false,
     priority = 1000,
-    config = function()
-        require("catppuccin").setup {
-            highlight_overrides = {
-                all = function(colors)
-                    return {
-                        LineNr = { fg = "#FF00C3" },
-                    }
-                end,
-            },
-        }
+
+    -- apply colourtheme before highlights are set
+    init = function()
         vim.cmd.colorscheme("catppuccin-mocha")
-    end
+    end,
+
+    -- lazy.nvim opts format for everything else
+    opts = {
+        highlight_overrides = {
+            all = function()
+                return {
+                    LineNr = { fg = "#FF00C3" },
+                }
+            end,
+        },
+    }
 }

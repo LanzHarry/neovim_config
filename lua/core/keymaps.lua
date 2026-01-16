@@ -14,6 +14,11 @@ map({ "n", "v" }, "<Space>", "<Nop>")
 
 -- custom escape sequence using rare digram
 map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
+map("i", "kj", "<Esc>", "Alternative to escape for leaving insert mode")
+
+-- remap moving to the end of a line to more ergonomic keys
+map({ "n", "v", "o" }, "H", "^", "Go to start of visible text")
+map({ "n", "v", "o" }, "L", "g_", "Go to end of visible text")
 
 -- line moving (slightly buggy at bof and eof but useable)
 map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<cmd>normal! zz<CR>", "Move line up (insert mode)")
@@ -55,7 +60,7 @@ map("n", "<Right>", "<cmd>vertical resize +2<CR>", "Increase split width")
 map("n", "<leader>v", "<C-w>v", "Create vertical split")
 map("n", "<leader>h", "<C-w>s", "Create horizontal split")
 map("n", "<leader>se", "<C-w>=", "Make splits equal")
-map("n", "<leader>xs", "<cmd>close<CR>", "Close split")
+map("n", "<leader>sx", "<cmd>close<CR>", "Close split")
 
 -- split navigation
 map("n", "<C-j>", "<cmd>wincmd j<CR>", "Navigate to split below")

@@ -76,6 +76,7 @@ map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
 
 -- tabs
 map("n", "<leader>to", "<cmd>tabnew<CR>", "Open new tab")
+map("n", "<leader>ts", "<cmd>tab split<CR>", "Open new tab by splitting current window")
 map("n", "<leader>tx", "<cmd>tabclose<CR>", "Close tab")
 map("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
 map("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")

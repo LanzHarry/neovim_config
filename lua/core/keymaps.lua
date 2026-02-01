@@ -7,28 +7,15 @@ local function map(mode, map_keys, map_command, desc)
     vim.keymap.set(mode, map_keys, map_command, opts)
 end
 
--- set leader keys
+-- set leader keys and sanitisation mappings
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-map({ "n", "v" }, "<Space>", "<Nop>")
+map({ "n", "v" }, "<Space>", "<nop>")
+map("n", "Q", "<nop>")
 
 -- custom escape sequence using rare digram
 map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
 map("i", "kj", "<Esc>", "Alternative to escape for leaving insert mode")
-
--- remap moving to the end of a line to more ergonomic keys
-map({ "n", "v", "o" }, "H", "^", "Go to start of visible text")
-map({ "n", "v", "o" }, "L", "g_", "Go to end of visible text")
-
--- line moving (slightly buggy at bof and eof but useable)
-map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<cmd>normal! zz<CR>", "Move line up (insert mode)")
-map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi<cmd>normal! zz<CR>", "Move line down (insert mode)")
-
-map("n", "<A-j>", "<cmd>m .+1<CR>==<cmd>normal! zz<CR>", "Move line down")
-map("n", "<A-k>", "<cmd>m .-2<CR>==<cmd>normal! zz<CR>", "Move line up")
-
-map("x", "<A-j>", ":m '>+1<CR>gv=gv<cmd>normal! zz<CR>", "Move selection down")
-map("x", "<A-k>", ":m '<-2<CR>gv=gv<cmd>normal! zz<CR>", "Move selection up")
 
 -- save file (might need stty -ixon in some terminals)
 map({ "i", "n" }, "<C-s>", "<cmd>update<CR>", "Save file")
@@ -39,8 +26,14 @@ map("n", "<leader>sn", "<cmd>noautocmd w<CR>", "Save file no auto-format")
 -- quit file
 map({ "i", "n" }, "<C-q>", "<cmd>q<CR>", "Quit file")
 
--- delete single character without copying into default register
-map("n", "x", '"_x', "Delete char with no register copy")
+-- remap moving to the end of a line to more ergonomic keys
+-- default line extremity motions:
+-- 0 goes to the start of the line including whitespace
+-- ^ goes to the start of the line excluding whitespace
+-- g_ goes to the end of the line including whitespace
+-- $ goes to the end of the line excluding whitespace
+map({ "n", "v", "o" }, "H", "^", "Go to start of visible text")
+map({ "n", "v", "o" }, "L", "g_", "Go to end of visible text")
 
 -- page down and up with centering
 map("n", "<C-d>", "<C-d>zz", "Page down and centre")
@@ -49,6 +42,22 @@ map("n", "<C-u>", "<C-u>zz", "Page up and centre")
 -- find and centre
 map("n", "n", "nzzzv", "Find next and centre")
 map("n", "N", "Nzzzv", "Find previous and centre")
+
+-- delete single character without copying into default register
+map("n", "x", '"_x', "Delete char with no register copy")
+
+-- keep last yank when pasting over
+map("x", "<leader>p", '"_dP', "Paste but do not copy overwritten text to clipboard")
+
+-- line moving (slightly buggy at bof and eof but useable)
+map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<cmd>normal! zz<CR>", "Move line up (insert mode)")
+map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi<cmd>normal! zz<CR>", "Move line down (insert mode)")
+
+map("n", "<A-j>", "<cmd>m .+1<CR>==<cmd>normal! zz<CR>", "Move line down")
+map("n", "<A-k>", "<cmd>m .-2<CR>==<cmd>normal! zz<CR>", "Move line up")
+
+map("x", "<A-j>", ":m '>+1<CR>gv=gv<cmd>normal! zz<CR>", "Move selection down")
+map("x", "<A-k>", ":m '<-2<CR>gv=gv<cmd>normal! zz<CR>", "Move selection up")
 
 -- resize splits with arrows
 map("n", "<Up>", "<cmd>resize -2<CR>", "Decrease split height")
@@ -87,9 +96,6 @@ map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
 -- stay in visual mode for indenting
 map("v", "<", "<gv", "Stay in visual mode post un-indent")
 map("v", ">", ">gv", "Stay in visual mode post indent")
-
--- keep last yank when pasting over
-map("v", "p", '"_dP', "Paste but do not copy overwritten text to clipboard")
 
 -- diagnostic keymaps
 map("n", "[d", 

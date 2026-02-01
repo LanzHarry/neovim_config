@@ -49,12 +49,48 @@ map("n", "x", '"_x', "Delete char with no register copy")
 -- keep last yank when pasting over
 map("x", "<leader>p", '"_dP', "Paste but do not copy overwritten text to clipboard")
 
+-- delete to void register
+map({ "n", "v" }, "<leader>d", '"_d', "Delete to void register")
+
+-- could add similar mappings for yanking only into system clipboard or not
+
+-- stay in visual mode for indenting
+map("v", "<", "<gv", "Stay in visual mode post un-indent")
+map("v", ">", ">gv", "Stay in visual mode post indent")
+
 -- line moving (slightly buggy at bof and eof but useable - maybe remap away from alt?)
 map("x", "<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
 map("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
 -- append line with j but keep cursor in original position
 map("n", "J", "mzJ`z", "Join lines but keep cursor in place")
+
+-- find and replace mappings
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]])
+
+-- toggle line wrapping
+map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
+
+-- diagnostic keymaps
+map("n", "[d", 
+function() vim.diagnostic.jump {
+    count = -1,
+    float = true
+} end,
+"Go to previous diagnostic message and open floating window")
+
+map("n", "]d", 
+function() vim.diagnostic.jump {
+    count = 1,
+    float = true
+} end,
+"Go to next diagnostic message and open floating window")
+
+map("n", "<leader>d", vim.diagnostic.open_float, "Open diagnostic message in floating window")
+map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
+
+-- quickfix keymaps (add these once more familiar with quickfix)
+-- cnext, cprev, lnext, lprev, etc.
 
 -- resize splits with arrows
 map("n", "<Up>", "<cmd>resize -2<CR>", "Decrease split height")
@@ -87,27 +123,3 @@ map("n", "<leader>tx", "<cmd>tabclose<CR>", "Close tab")
 map("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
 map("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")
 
--- toggle line wrapping
-map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
-
--- stay in visual mode for indenting
-map("v", "<", "<gv", "Stay in visual mode post un-indent")
-map("v", ">", ">gv", "Stay in visual mode post indent")
-
--- diagnostic keymaps
-map("n", "[d", 
-function() vim.diagnostic.jump {
-    count = -1,
-    float = true
-} end,
-"Go to previous diagnostic message and open floating window")
-
-map("n", "]d", 
-function() vim.diagnostic.jump {
-    count = 1,
-    float = true
-} end,
-"Go to next diagnostic message and open floating window")
-
-map("n", "<leader>d", vim.diagnostic.open_float, "Open diagnostic message in floating window")
-map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")

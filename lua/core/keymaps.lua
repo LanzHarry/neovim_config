@@ -49,15 +49,12 @@ map("n", "x", '"_x', "Delete char with no register copy")
 -- keep last yank when pasting over
 map("x", "<leader>p", '"_dP', "Paste but do not copy overwritten text to clipboard")
 
--- line moving (slightly buggy at bof and eof but useable)
-map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi<cmd>normal! zz<CR>", "Move line up (insert mode)")
-map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi<cmd>normal! zz<CR>", "Move line down (insert mode)")
+-- line moving (slightly buggy at bof and eof but useable - maybe remap away from alt?)
+map("x", "<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
+map("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
-map("n", "<A-j>", "<cmd>m .+1<CR>==<cmd>normal! zz<CR>", "Move line down")
-map("n", "<A-k>", "<cmd>m .-2<CR>==<cmd>normal! zz<CR>", "Move line up")
-
-map("x", "<A-j>", ":m '>+1<CR>gv=gv<cmd>normal! zz<CR>", "Move selection down")
-map("x", "<A-k>", ":m '<-2<CR>gv=gv<cmd>normal! zz<CR>", "Move selection up")
+-- append line with j but keep cursor in original position
+map("n", "J", "mzJ`z", "Join lines but keep cursor in place")
 
 -- resize splits with arrows
 map("n", "<Up>", "<cmd>resize -2<CR>", "Decrease split height")

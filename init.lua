@@ -1,8 +1,8 @@
 -- set leader keys and sanitisation mappings
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-map({ "n", "v" }, "<Space>", "<nop>")
-map("n", "Q", "<nop>")
+vim.keymap.set({ "n", "v" }, "<Space>", "<nop>", { noremap = true, silent = true, desc = ""})
+vim.keymap.set("n", "Q", "<nop>", { noremap = true, silent = true, desc = ""})
 
 -- requirements starting with lazy
 require("core.lazy")

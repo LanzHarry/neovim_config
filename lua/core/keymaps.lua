@@ -7,12 +7,6 @@ local function map(mode, map_keys, map_command, desc)
     vim.keymap.set(mode, map_keys, map_command, opts)
 end
 
--- set leader keys and sanitisation mappings
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-map({ "n", "v" }, "<Space>", "<nop>")
-map("n", "Q", "<nop>")
-
 -- custom escape sequence using rare digram
 map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
 map("i", "kj", "<Esc>", "Alternative to escape for leaving insert mode")

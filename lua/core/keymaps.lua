@@ -7,6 +7,12 @@ local function map(mode, map_keys, map_command, desc)
     vim.keymap.set(mode, map_keys, map_command, opts)
 end
 
+-- set leader keys and sanitisation mappings
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+map({ "n", "v" }, "<Space>", "<nop>")
+map("n", "Q", "<nop>")
+
 -- custom escape sequence using rare digram
 map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
 map("i", "kj", "<Esc>", "Alternative to escape for leaving insert mode")
@@ -107,7 +113,7 @@ map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right")
 -- buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
-map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer") -- sane buffer deletion handled with plugins 
+-- map("n", "<leader>x", "<cmd>Bdelete<CR>", "Close current buffer") -- relies on vim-bbye so defined in plugin
 map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
 
 -- tabs

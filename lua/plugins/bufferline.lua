@@ -3,7 +3,6 @@ return {
     version = "*",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        "moll/vim-bbye"
     },
     opts = {
         options = {

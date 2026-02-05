@@ -21,7 +21,6 @@ require("lazy").setup({
     -- import plugins
     { import = "plugins.colourscheme" },
     { import = "plugins.bufferline" },
-    { import = "plugins.bbye" },
     { import = "plugins.neotree" },
     { import = "plugins.treesitter" }
   }

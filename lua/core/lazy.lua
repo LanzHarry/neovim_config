@@ -22,6 +22,7 @@ require("lazy").setup({
     { import = "plugins.colourscheme" },
     { import = "plugins.bufferline" },
     { import = "plugins.neotree" },
-    { import = "plugins.treesitter" }
+    { import = "plugins.treesitter" },
+    { import = "plugins.mini" }
   }
 })

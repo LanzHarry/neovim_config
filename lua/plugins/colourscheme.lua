@@ -1,22 +1,22 @@
 return {
-    "catppuccin/nvim", 
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
+  "catppuccin/nvim", 
+  name = "catppuccin",
+  lazy = false,
+  priority = 1000,
 
-    -- apply colourtheme before highlights are set
-    init = function()
-        vim.cmd.colorscheme("catppuccin-mocha")
-    end,
+  -- apply colourtheme before highlights are set
+  config = function()
+    vim.cmd.colorscheme("catppuccin-mocha")
+  end,
 
-    -- lazy.nvim opts format for everything else
-    opts = {
-        highlight_overrides = {
-            all = function()
-                return {
-                    LineNr = { fg = "#FF00C3" },
-                }
-            end,
-        },
-    }
+  -- lazy.nvim opts format for everything else
+  opts = {
+    highlight_overrides = {
+      all = function()
+        return {
+          LineNr = { fg = "#FF00C3" },
+        }
+      end,
+    },
+  }
 }

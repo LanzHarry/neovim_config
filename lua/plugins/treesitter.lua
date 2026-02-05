@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" }, 
     build = ':TSUpdate',
     opts = {
         ensure_installed = { "bash", "c", "lua", "python", "vim", "vimdoc", "query", "markdown", "markdown_inline" },

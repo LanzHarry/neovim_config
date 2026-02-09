@@ -50,5 +50,12 @@ return {
         col = 1
       },
     }
+  },
+  {
+    "tpope/vim-fugitive",
+    cmd = { "Git", "Gdiffsplit", "Gread", "Gwrite", "Gblame" },
+    keys = {
+      { "<leader>gs", "<cmd>Git<cr>", desc = "Git status" },
+    }
   }
 }

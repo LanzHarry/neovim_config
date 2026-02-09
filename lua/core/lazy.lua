@@ -23,6 +23,7 @@ require("lazy").setup({
     { import = "plugins.bufferline" },
     { import = "plugins.neotree" },
     { import = "plugins.treesitter" },
-    { import = "plugins.mini" }
+    { import = "plugins.mini" },
+    { import = "plugins.git_plugins" }
   }
 })

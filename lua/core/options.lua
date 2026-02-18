@@ -65,3 +65,13 @@ vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- remove vim plugins from 
 vim.opt.autoread = true -- auto-reload files changed on disk (works with checktime)
 vim.opt.smoothscroll = true -- smooth scolling if version supports it
 vim.opt.laststatus = 2 -- always show statusline (maybe not useful if lualine for example)
+
+-- diagnostic settings
+vim.diagnostic.config({
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN },
+  },
+  signs = true,
+  underline = true,
+  severity_sort = true,
+})

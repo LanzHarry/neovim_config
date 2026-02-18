@@ -24,6 +24,7 @@ require("lazy").setup({
     { import = "plugins.neotree" },
     { import = "plugins.treesitter" },
     { import = "plugins.mini" },
-    { import = "plugins.git_plugins" }
+    { import = "plugins.git_plugins" },
+    { import = "plugins.lsp_config" },
   }
 })

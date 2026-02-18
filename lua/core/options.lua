@@ -17,6 +17,8 @@ vim.opt.pumblend = 0 -- no transparancy for popup menus
 vim.opt.winblend = 0 -- no transparency for floating windows
 vim.opt.completeopt = "menuone,noselect" -- show completion even for one item, don't auto insert
 vim.opt.shortmess:append "c" -- suppress completion messages for quieter UI
+vim.opt.list = true -- visualise whitespace
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- text editing behavioural options
 vim.opt.wrap = false -- prevent line wrapping
@@ -35,7 +37,7 @@ vim.opt.backspace = "indent,eol,start" -- allow backspace for indents and start/
 
 -- interaction behavioural settings
 vim.opt.mouse = "a" -- enable mouse mode in all modes
-vim.opt.clipboard = "unnamedplus" -- sync clipboard between OS clipboard and neovim registers
+vim.schedule(function() vim.opt.clipboard = "unnamedplus" end) -- sync clipboard between OS clipboard and neovim registers
 vim.opt.ignorecase = true -- ignore case in search unless \C or capital in search
 vim.opt.smartcase = true -- paired with ignorecase to give correct functionality as described above
 vim.opt.scrolloff = 8 -- keep this many lines above and below cursor vertically
@@ -59,7 +61,7 @@ vim.opt.undolevels = 10000 -- max undo steps
 vim.opt.undoreload = 10000 -- lines to save for reload
 vim.opt.fileencoding = "utf-8" -- default file encoding
 vim.opt.updatetime = 250 -- wait time for neovim to fire certain events
-vim.opt.timeoutlen = 500 -- wait time to complete mapped sequence
+vim.opt.timeoutlen = 300 -- wait time to complete mapped sequence
 vim.opt.iskeyword:append "-" -- treat hyphenated words as one word
 vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- remove vim plugins from neovim path
 vim.opt.autoread = true -- auto-reload files changed on disk (works with checktime)
@@ -71,7 +73,11 @@ vim.diagnostic.config({
   virtual_text = {
     severity = { min = vim.diagnostic.severity.WARN },
   },
+  virtual_lines = false,
   signs = true,
   underline = true,
   severity_sort = true,
+  update_in_insert = false,
+  float = { border = "rounded", source = true },
+  jump = { float = true }
 })

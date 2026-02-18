@@ -72,14 +72,14 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]]
 map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
 
 -- diagnostic keymaps
-map("n", "[d", 
+map("n", "[d",
 function() vim.diagnostic.jump {
     count = -1,
     float = true
 } end,
 "Go to previous diagnostic message and open floating window")
 
-map("n", "]d", 
+map("n", "]d",
 function() vim.diagnostic.jump {
     count = 1,
     float = true
@@ -106,9 +106,9 @@ map("n", "<leader>sx", "<cmd>close<CR>", "Close split")
 
 -- split navigation
 map("n", "<C-j>", "<cmd>wincmd j<CR>", "Navigate to split below")
-map("n", "<C-k>", "<cmd>wincmd k<CR>", "Navigate to split above") 
-map("n", "<C-h>", "<cmd>wincmd h<CR>", "Navigate to split left") 
-map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right") 
+map("n", "<C-k>", "<cmd>wincmd k<CR>", "Navigate to split above")
+map("n", "<C-h>", "<cmd>wincmd h<CR>", "Navigate to split left")
+map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right")
 
 -- buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")

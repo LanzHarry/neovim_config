@@ -26,5 +26,6 @@ require("lazy").setup({
     { import = "plugins.mini" },
     { import = "plugins.git_plugins" },
     { import = "plugins.lsp_config" },
+    { import = "plugins.telescope" },
   }
 })

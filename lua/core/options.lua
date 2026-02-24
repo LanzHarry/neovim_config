@@ -19,6 +19,7 @@ vim.opt.completeopt = "menuone,noselect" -- show completion even for one item, d
 vim.opt.shortmess:append "c" -- suppress completion messages for quieter UI
 vim.opt.list = true -- visualise whitespace
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.winborder = "rounded"
 
 -- text editing behavioural options
 vim.opt.wrap = false -- prevent line wrapping

@@ -8,11 +8,10 @@ return {
     require("catppuccin").setup {
       custom_highlights = function()
         return {
-          LineNr = { fg = "#FF00C3" }
+          LineNr = { fg = "#FF00C3" },
         }
-      end
+      end,
     }
     vim.cmd.colorscheme("catppuccin-mocha")
   end,
-
 }

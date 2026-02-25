@@ -16,9 +16,9 @@ vim.opt.pumheight = 10 -- set popup menu height
 vim.opt.pumblend = 0 -- no transparancy for popup menus
 vim.opt.winblend = 0 -- no transparency for floating windows
 vim.opt.completeopt = "menuone,noselect" -- show completion even for one item, don't auto insert
-vim.opt.shortmess:append "c" -- suppress completion messages for quieter UI
+vim.opt.shortmess:append("c") -- suppress completion messages for quieter UI
 vim.opt.list = true -- visualise whitespace
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.winborder = "rounded"
 
 -- text editing behavioural options
@@ -47,10 +47,10 @@ vim.opt.termguicolors = true -- enable 24 bit colour
 vim.opt.splitbelow = true -- horizontal splits are placed below by default
 vim.opt.splitright = true -- vertical splits are placed right by default
 vim.opt.equalalways = true -- keep splits balanced when opening and closing
-vim.opt.hidden = true -- allow buffer switching without saving 
+vim.opt.hidden = true -- allow buffer switching without saving
 vim.opt.confirm = true -- ask what to do instead of erroring when closing with unsaved changes
 vim.opt.incsearch = true -- show matches as search is typed
-vim.opt.inccommand = "split" -- live preview for :substitute 
+vim.opt.inccommand = "split" -- live preview for :substitute
 
 -- backend settings
 vim.opt.swapfile = false -- whether to create a swapfile
@@ -63,14 +63,14 @@ vim.opt.undoreload = 10000 -- lines to save for reload
 vim.opt.fileencoding = "utf-8" -- default file encoding
 vim.opt.updatetime = 250 -- wait time for neovim to fire certain events
 vim.opt.timeoutlen = 300 -- wait time to complete mapped sequence
-vim.opt.iskeyword:append "-" -- treat hyphenated words as one word
-vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- remove vim plugins from neovim path
+vim.opt.iskeyword:append("-") -- treat hyphenated words as one word
+vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- remove vim plugins from neovim path
 vim.opt.autoread = true -- auto-reload files changed on disk (works with checktime)
 vim.opt.smoothscroll = true -- smooth scolling if version supports it
 vim.opt.laststatus = 2 -- always show statusline (maybe not useful if lualine for example)
 
 -- diagnostic settings
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = {
     severity = { min = vim.diagnostic.severity.WARN },
   },
@@ -80,5 +80,5 @@ vim.diagnostic.config({
   severity_sort = true,
   update_in_insert = false,
   float = { border = "rounded", source = true },
-  jump = { float = true }
-})
+  jump = { float = true },
+}

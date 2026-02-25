@@ -23,7 +23,7 @@ return {
       })
 
       require("mason-tool-installer").setup {
-        ensure_installed = ensure_installed
+        ensure_installed = ensure_installed,
       }
 
       for server_name, server_settings in pairs(servers) do
@@ -48,6 +48,6 @@ return {
         },
       })
       vim.lsp.enable("lua_ls")
-    end
-  }
+    end,
+  },
 }

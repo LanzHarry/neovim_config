@@ -1,10 +1,10 @@
 -- remap helper function
 -- noremap and silent are always true, desc is user settable parameter
 local function map(mode, map_keys, map_command, desc)
-    local opts = { noremap = true, silent = true, desc = ""}
-    opts.desc = desc or ""
-    -- could implement this with vim.tbl_extend if needed
-    vim.keymap.set(mode, map_keys, map_command, opts)
+  local opts = { noremap = true, silent = true, desc = "" }
+  opts.desc = desc or ""
+  -- could implement this with vim.tbl_extend if needed
+  vim.keymap.set(mode, map_keys, map_command, opts)
 end
 
 -- set leader keys and sanitisation mappings
@@ -72,19 +72,29 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]]
 map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
 
 -- diagnostic keymaps
-map("n", "[d",
-function() vim.diagnostic.jump {
-    count = -1,
-    float = true
-} end,
-"Go to previous diagnostic message and open floating window")
+map(
+  "n",
+  "[d",
+  function()
+    vim.diagnostic.jump {
+      count = -1,
+      float = true,
+    }
+  end,
+  "Go to previous diagnostic message and open floating window"
+)
 
-map("n", "]d",
-function() vim.diagnostic.jump {
-    count = 1,
-    float = true
-} end,
-"Go to next diagnostic message and open floating window")
+map(
+  "n",
+  "]d",
+  function()
+    vim.diagnostic.jump {
+      count = 1,
+      float = true,
+    }
+  end,
+  "Go to next diagnostic message and open floating window"
+)
 
 map("n", "<leader>d", vim.diagnostic.open_float, "Open diagnostic message in floating window")
 map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
@@ -113,7 +123,7 @@ map("n", "<C-l>", "<cmd>wincmd l<CR>", "Navigate to split right")
 -- buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", "Go to next buffer")
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", "Go to previous buffer")
-map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer") -- sane buffer deletion can be added later with mini? 
+map("n", "<leader>x", "<cmd>bdelete<CR>", "Close current buffer") -- sane buffer deletion can be added later with mini?
 map("n", "<leader>b", "<cmd>enew<CR>", "Open new buffer")
 
 -- tabs
@@ -122,4 +132,3 @@ map("n", "<leader>ts", "<cmd>tab split<CR>", "Open new tab by splitting current 
 map("n", "<leader>tx", "<cmd>tabclose<CR>", "Close tab")
 map("n", "<leader>tn", "<cmd>tabn<CR>", "Next tab")
 map("n", "<leader>tp", "<cmd>tabp<CR>", "Previous tab")
-

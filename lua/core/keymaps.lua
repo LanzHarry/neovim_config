@@ -59,8 +59,8 @@ map("v", "<", "<gv", "Stay in visual mode post un-indent")
 map("v", ">", ">gv", "Stay in visual mode post indent")
 
 -- line moving (slightly buggy at bof and eof but useable - maybe remap away from alt?)
-map("x", "<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
-map("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
+map("x", "<M-j>", ":m '>+1<CR>gv=gv", "Move selection down")
+map("x", "<M-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
 -- append line with j but keep cursor in original position
 map("n", "J", "mzJ`z", "Join lines but keep cursor in place")

@@ -13,6 +13,7 @@ return {
       -- servers to install using mason
       local servers = {
         pyright = {},
+        clangd = {},
       }
 
       -- ensure servers AND tools are installed here

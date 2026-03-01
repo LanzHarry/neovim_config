@@ -29,5 +29,6 @@ require("lazy").setup {
     { import = "plugins.telescope" },
     { import = "plugins.completion" },
     { import = "plugins.misc" },
+    { import = "plugins.conform" },
   },
 }

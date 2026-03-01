@@ -12,20 +12,32 @@ return {
 
       -- servers to install using mason
       local servers = {
-        pyright = {},
-        clangd = {},
+        pyright = {}, -- python
+        clangd = { -- c/c++
+          cmd = {
+            "clangd",
+            "--clang-tidy",
+            "--header-insertion=never",
+          },
+          -- disable formatting capabilities of clangd so proper formatters can work instead
+          on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+        },
       }
 
       -- ensure servers AND tools are installed here
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        "lua-language-server", -- note ensure installed here but enable manually
-        "stylua",
+        "lua-language-server", -- this is here as the setup is handled manually below
+        "stylua", -- lua formatter
+        "clang-format", -- c/c++ formatter
       })
 
-      require("mason-tool-installer").setup {
+      require("mason-tool-installer").setup({
         ensure_installed = ensure_installed,
-      }
+      })
 
       for server_name, server_settings in pairs(servers) do
         vim.lsp.config(server_name, server_settings)

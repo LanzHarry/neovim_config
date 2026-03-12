@@ -18,6 +18,11 @@ return {
     lint.linters_by_ft = {
       c = { "cppcheck" },
       cpp = { "cppcheck" },
+      typescript = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
+      javascript = { "eslint_d" },
+      dockerfile = { "hadolint" },
+      python = { "ruff" },
     }
 
     lint.linters.cppcheck.args = cppcheck.args()

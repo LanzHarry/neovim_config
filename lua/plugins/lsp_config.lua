@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
+      { "mason-org/mason-lspconfig.nvim", opts = {} },
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
     },
@@ -12,7 +13,6 @@ return {
 
       -- servers to install using mason
       local servers = {
-        pyright = {}, -- python
         clangd = { -- c/c++
           cmd = {
             "clangd",
@@ -25,14 +25,44 @@ return {
             client.server_capabilities.documentRangeFormattingProvider = false
           end,
         },
+
+        dockerls = {}, -- dockerfile
+
+        pyright = {}, -- python
+
+        ruff = {
+          on_attach = function(client, _)
+            -- disable hover in favour of pyright
+            client.server_capabilities.hoverProvider = false
+          end,
+        },
+
+        sqls = {},
+
+        ts_ls = {},
+
+        yamlls = {
+          settings = {
+            yaml = {
+              schemas = {
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yml",
+                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.yml",
+              },
+            },
+          },
+        },
       }
 
       -- ensure servers AND tools are installed here
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        "lua-language-server", -- this is here as the setup is handled manually below
-        "stylua", -- lua formatter
         "clang-format", -- c/c++ formatter
+        "eslint_d", -- linter for js and ts
+        "hadolint", -- linter for dockerfiles
+        "lua-language-server", -- this is here as the setup is handled manually below
+        "prettierd", -- formatter for js and ts
+        "stylua", -- lua formatter
+        "sql-formatter", -- formatter for sql
       })
 
       require("mason-tool-installer").setup({

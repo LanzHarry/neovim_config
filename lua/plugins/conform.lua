@@ -7,10 +7,17 @@ return {
   opts = {
     notify_on_error = false,
     formatters_by_ft = {
-      cpp = { "clang-format" },
-      c = { "clang-format" },
-      h = { "clang-format" },
+      cpp = { "clang_format" },
+      c = { "clang_format" },
+      h = { "clang_format" },
       lua = { "stylua" },
+      python = { "ruff_format" },
+      typescript = { "prettierd" },
+      typescriptreact = { "prettierd" },
+      javascript = { "prettierd" },
+      yaml = { "prettierd" },
+      json = { "prettierd" },
+      sql = { "sql_formatter" },
     },
     format_on_save = function(bufnr)
       if disable_filetypes[vim.bo[bufnr].filetype] then

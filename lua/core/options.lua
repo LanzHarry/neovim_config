@@ -38,7 +38,9 @@ vim.opt.backspace = "indent,eol,start" -- allow backspace for indents and start/
 
 -- interaction behavioural settings
 vim.opt.mouse = "a" -- enable mouse mode in all modes
-vim.schedule(function() vim.opt.clipboard = "unnamedplus" end) -- sync clipboard between OS clipboard and neovim registers
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end) -- sync clipboard between OS clipboard and neovim registers
 vim.opt.ignorecase = true -- ignore case in search unless \C or capital in search
 vim.opt.smartcase = true -- paired with ignorecase to give correct functionality as described above
 vim.opt.scrolloff = 8 -- keep this many lines above and below cursor vertically
@@ -70,7 +72,7 @@ vim.opt.smoothscroll = true -- smooth scolling if version supports it
 vim.opt.laststatus = 2 -- always show statusline (maybe not useful if lualine for example)
 
 -- diagnostic settings
-vim.diagnostic.config {
+vim.diagnostic.config({
   virtual_text = {
     severity = { min = vim.diagnostic.severity.WARN },
   },
@@ -81,4 +83,10 @@ vim.diagnostic.config {
   update_in_insert = false,
   float = { border = "rounded", source = true },
   jump = { float = true },
-}
+})
+
+vim.api.nvim_set_hl(0, "DiagnosticDeprecated", {
+  underline = true,
+  sp = "Gray",
+  strikethrough = false,
+})

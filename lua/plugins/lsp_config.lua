@@ -9,8 +9,18 @@ return {
     },
     config = function()
       -- following rough structure of kickstart
-      -- could add keymaps in here for go to definition etc
 
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp-attach-group", { clear = true }),
+        callback = function(event)
+          local map = function(keys, func, desc, mode)
+            mode = mode or "n"
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+          end
+
+          map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        end,
+      })
       -- servers to install using mason
       local servers = {
         clangd = { -- c/c++

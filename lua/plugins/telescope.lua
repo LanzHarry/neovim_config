@@ -10,7 +10,7 @@ return {
     },
   },
   config = function()
-    require("telescope").setup {
+    require("telescope").setup({
       extensions = {
         fzf = {
           fuzzy = true, -- false will only do exact matching
@@ -19,10 +19,50 @@ return {
           case_mode = "smart_case", -- or "ignore_case" or "respect_case" the default case_mode is "smart_case"
         },
       },
-    }
+    })
     require("telescope").load_extension("fzf")
 
     local builtin = require("telescope.builtin")
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+    -- leader f keymaps for FIND style search
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+    vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "[F]ind [S]elect Telescope" })
+    vim.keymap.set(
+      { "n", "v" },
+      "<leader>fw",
+      builtin.grep_string,
+      { desc = "[F]ind current [W]ord" }
+    )
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep" })
+    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+    vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
+    vim.keymap.set(
+      "n",
+      "<leader>f.",
+      builtin.oldfiles,
+      { desc = '[F]ind Recent Files ("." for repeat)' }
+    )
+    vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "[F]ind [C]ommands" })
+    vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+    -- misc leader keymaps (couldn't lead with f due to clashes)
+    vim.keymap.set(
+      "n",
+      "<leader>ds",
+      builtin.lsp_document_symbols,
+      { desc = "[D]ocument [S]ymbols" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>ws",
+      builtin.lsp_document_symbols,
+      { desc = "[W]orkspace [S]ymbols" }
+    )
+
+    -- g keymaps for lsp powered searches
+    vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "[G]oto [D]efinition" })
+    vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
+    vim.keymap.set("n", "gri", builtin.lsp_implementations, { desc = "[G]oto [I]mplementation" })
   end,
 }

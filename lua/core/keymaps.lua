@@ -17,14 +17,14 @@ map("n", "Q", "<nop>")
 map("i", "jk", "<Esc>", "Alternative to escape for leaving insert mode")
 map("i", "kj", "<Esc>", "Alternative to escape for leaving insert mode")
 
--- save file (might need stty -ixon in some terminals)
-map({ "i", "n" }, "<C-s>", "<cmd>update<CR>", "Save file")
+-- save file
+map("n", "<leader>s", "<cmd>update<CR>", "Save file")
 
 -- save file no auto formatting
-map("n", "<leader>sn", "<cmd>noautocmd w<CR>", "Save file no auto-format")
+map("n", "<leader>sn", "<cmd>noautocmd update<CR>", "Save file no auto-format")
 
 -- quit file
-map({ "i", "n" }, "<C-q>", "<cmd>q<CR>", "Quit file")
+map("n", "<leader>q", "<cmd>q<CR>", "Quit file")
 
 -- remap moving to the end of a line to more ergonomic keys
 -- default line extremity motions:
@@ -50,7 +50,7 @@ map("n", "x", '"_x', "Delete char with no register copy")
 map("x", "<leader>p", '"_dP', "Paste but do not copy overwritten text to clipboard")
 
 -- delete to void register
-map({ "n", "v" }, "<leader>d", '"_d', "Delete to void register")
+map("v", "<leader>d", '"_d', "Delete to void register")
 
 -- could add similar mappings for yanking only into system clipboard or not
 
@@ -66,38 +66,30 @@ map("x", "<M-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 map("n", "J", "mzJ`z", "Join lines but keep cursor in place")
 
 -- find and replace mappings
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]])
+vim.keymap.set(
+  "n",
+  "<leader>fr",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]],
+  { desc = "[F]ind and [r]eplace word in buffer" }
+)
 
 -- toggle line wrapping
 map("n", "<leader>lw", "<cmd>set wrap!<CR>", "Toggle line wrapping")
 
 -- diagnostic keymaps
-map(
-  "n",
-  "[d",
-  function()
-    vim.diagnostic.jump {
-      count = -1,
-      float = true,
-    }
-  end,
-  "Go to previous diagnostic message and open floating window"
-)
+map("n", "[d", function()
+  vim.diagnostic.jump({
+    count = -1,
+    float = true,
+  })
+end, "Go to previous diagnostic message and open floating window")
 
-map(
-  "n",
-  "]d",
-  function()
-    vim.diagnostic.jump {
-      count = 1,
-      float = true,
-    }
-  end,
-  "Go to next diagnostic message and open floating window"
-)
-
-map("n", "<leader>d", vim.diagnostic.open_float, "Open diagnostic message in floating window")
-map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
+map("n", "]d", function()
+  vim.diagnostic.jump({
+    count = 1,
+    float = true,
+  })
+end, "Go to next diagnostic message and open floating window")
 
 -- quickfix keymaps (add these once more familiar with quickfix)
 -- cnext, cprev, lnext, lprev, etc.

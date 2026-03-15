@@ -19,6 +19,7 @@ return {
           end
 
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          -- map("<C-s>", vim.lsp.buf.signature_help, "Show signature help", "i")
         end,
       })
       -- servers to install using mason

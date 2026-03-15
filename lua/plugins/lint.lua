@@ -22,7 +22,7 @@ return {
       typescriptreact = { "eslint_d" },
       javascript = { "eslint_d" },
       dockerfile = { "hadolint" },
-      python = { "ruff" },
+      -- python = { "ruff" },
     }
 
     lint.linters.cppcheck.args = cppcheck.args()

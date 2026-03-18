@@ -11,6 +11,26 @@ return {
   },
   config = function()
     require("telescope").setup({
+      defaults = {
+        file_ignore_patterns = {
+          "^%.git/",
+          "node_modules/",
+          "%.cache/",
+          "^%.cargo/",
+          "^%.rustup/",
+          "^%.nvm/",
+          "^%.local/share/",
+          "^%.dotnet/",
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+        live_grep = {
+          additional_args = { "--hidden" },
+        },
+      },
       extensions = {
         fzf = {
           fuzzy = true, -- false will only do exact matching
@@ -22,6 +42,7 @@ return {
     })
     require("telescope").load_extension("fzf")
 
+    -- KEYMAPS
     local builtin = require("telescope.builtin")
     -- leader f keymaps for FIND style search
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })

@@ -68,7 +68,7 @@ map("n", "J", "mzJ`z", "Join lines but keep cursor in place")
 -- find and replace mappings
 vim.keymap.set(
   "n",
-  "<leader>fr",
+  "<leader>rr",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]],
   { desc = "[F]ind and [r]eplace word in buffer" }
 )

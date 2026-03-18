@@ -3,7 +3,17 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { "bash", "c", "lua", "python", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    ensure_installed = {
+      "bash",
+      "c",
+      "lua",
+      "python",
+      "vim",
+      "vimdoc",
+      "query",
+      "markdown",
+      "markdown_inline",
+    },
     auto_install = true,
     prefer_git = true,
     highlight = {
@@ -15,6 +25,11 @@ return {
         return ok and stats and stats.size > max_filesize
       end,
       additional_vim_regex_highlighting = false,
+    },
+    textobjects = {
+      select = {
+        enable = false,
+      },
     },
     indent = { enable = true },
   },

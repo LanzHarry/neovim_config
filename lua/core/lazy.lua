@@ -20,17 +20,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- import plugins
-    { import = "plugins.colourscheme" },
     { import = "plugins.bufferline" },
-    { import = "plugins.neotree" },
-    { import = "plugins.treesitter" },
-    { import = "plugins.mini" },
-    { import = "plugins.git_plugins" },
-    { import = "plugins.lsp_config" },
-    { import = "plugins.telescope" },
+    { import = "plugins.colourscheme" },
     { import = "plugins.completion" },
-    { import = "plugins.misc" },
     { import = "plugins.conform" },
+    { import = "plugins.git_plugins" },
     { import = "plugins.lint" },
+    { import = "plugins.lsp_config" },
+    { import = "plugins.mini" },
+    { import = "plugins.misc" },
+    { import = "plugins.neotree" },
+    { import = "plugins.telescope" },
+    { import = "plugins.treesitter" },
   },
 })

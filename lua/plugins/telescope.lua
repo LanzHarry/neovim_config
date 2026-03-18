@@ -25,10 +25,10 @@ return {
       },
       pickers = {
         find_files = {
-          hidden = true,
+          find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
         },
         live_grep = {
-          additional_args = { "--hidden" },
+          additional_args = { "--hidden", "--glob", "!.git", "--glob", "!node_modules" },
         },
       },
       extensions = {
